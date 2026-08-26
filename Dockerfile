@@ -1,5 +1,4 @@
-# Imagem base com JDK 8 (Jython 2.7.x roda bem sobre Java 8)
-FROM openjdk:8-jdk-slim
+FROM eclipse-temurin:8-jdk-jammy
 
 LABEL maintainer="Atividade Jython - Interoperabilidade Python/Java"
 
