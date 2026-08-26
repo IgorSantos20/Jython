@@ -27,17 +27,11 @@ Em resumo: o Jython permite **misturar a sintaxe simples e dinâmica do
 Python com todo o ecossistema de bibliotecas do Java**, porque ambos passam
 a compartilhar a mesma plataforma de execução (a JVM).
 
-> Observação: o Jython implementa a linguagem **Python 2**, não Python 3.
-> Por isso, os exemplos deste projeto usam sintaxe compatível com Python 2
-> (ex.: `print "algo"` funciona, mas aqui usamos `print(...)` com
-> parênteses, que também é válido em Python 2 quando aplicado a um único
-> argumento).
-
 ---
 
 ## 2. Programas desenvolvidos
 
-O repositório contém três programas Python executados com Jython. Todos
+O repositório contém dois programas Python executados com Jython. Todos
 demonstram, de forma explícita, o uso de classes Java dentro do código
 Python.
 
@@ -65,21 +59,6 @@ Python.
   automaticamente pelas chaves), demonstrando o uso de mapas Java a partir
   de Python.
 
-### `exemplo3.py` (bônus) — Interface gráfica com Java Swing
-
-- Cria uma janela gráfica usando `javax.swing.JFrame`, `JButton`, `JLabel`
-  e `JPanel`, além de `java.awt.FlowLayout` e `java.awt.BorderLayout` para
-  o layout.
-- Implementa a interface Java `java.awt.event.ActionListener` **dentro de
-  uma classe Python**, mostrando como uma classe Python pode "herdar" e
-  implementar uma interface Java nativamente.
-- Exibe uma caixa de diálogo Java (`javax.swing.JOptionPane`) ao fechar o
-  programa.
-
-> Este exemplo abre uma janela e por isso **precisa de ambiente gráfico**.
-> Não roda dentro do container Docker por padrão (headless). Veja a seção
-> "Executando o `exemplo3.py`" mais abaixo para instruções de como rodá-lo.
-
 ---
 
 ## 3. Classes e bibliotecas Java utilizadas
@@ -89,9 +68,7 @@ Python.
 | `java.io`                 | `File`, `FileWriter`, `BufferedWriter`, `FileReader`, `BufferedReader`      | `exemplo1.py` |
 | `java.util`               | `Date`, `ArrayList`, `HashMap`, `TreeMap`, `Collections`                    | `exemplo1.py`, `exemplo2.py` |
 | `java.text`               | `SimpleDateFormat`                                                          | `exemplo1.py` |
-| `javax.swing`             | `JFrame`, `JButton`, `JLabel`, `JPanel`, `JOptionPane`                      | `exemplo3.py` |
-| `java.awt`                | `FlowLayout`, `BorderLayout`                                                | `exemplo3.py` |
-| `java.awt.event`          | `ActionListener`                                                            | `exemplo3.py` |
+
 
 ---
 
@@ -145,8 +122,13 @@ atividade-jython/
 ### Pré-requisitos
 
 - Java JDK instalado (versão 8 ou superior) — necessário porque o Jython
-  roda sobre a JVM.
-- Jython instalado na máquina.
+  roda sobre a JVM. Recomendamos o **Eclipse Temurin** (distribuição
+  gratuita e mantida ativamente do OpenJDK, mesma usada no `Dockerfile`
+  deste projeto), disponível em:
+  https://adoptium.net/temurin/releases/
+  > Observação: a distribuição antiga `openjdk` foi descontinuada; por isso passamos a usar
+  > o Eclipse Temurin tanto localmente quanto no Docker.
+- Jython instalado na máquina (veja o passo a passo abaixo).
 
 ### Passo a passo
 
@@ -202,6 +184,14 @@ docker run --rm atividade-jython
 
 Isso executa automaticamente `exemplo1.py` e `exemplo2.py` dentro do
 container e imprime a saída no terminal.
+
+
+> Por que existe um `run.sh`? Colocar comandos multilinha diretamente no
+> `CMD` do Dockerfile pode gerar erros de sintaxe do shell dependendo de
+> como as quebras de linha e aspas são escapadas no build. Para evitar
+> isso, o Dockerfile apenas chama `CMD ["/app/run.sh"]`, e todo o roteiro
+> de execução (qual exemplo roda, em que ordem, quais mensagens exibir)
+> fica centralizado nesse script, mais fácil de ler e de manter.
 
 ---
 
