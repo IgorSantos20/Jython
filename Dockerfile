@@ -1,6 +1,3 @@
-# Imagem base com JDK 8 (Jython 2.7.x roda bem sobre Java 8)
-# Obs: a imagem "openjdk:*" foi descontinuada no Docker Hub, por isso
-# usamos a Eclipse Temurin, que é a distribuição oficial mantida atualmente.
 FROM eclipse-temurin:8-jdk-jammy
 
 LABEL maintainer="Atividade Jython - Interoperabilidade Python/Java"
@@ -26,6 +23,4 @@ WORKDIR /app
 COPY . /app
 RUN chmod +x /app/run.sh
 
-# Ao rodar o container, executa os exemplos que nao dependem de interface grafica.
-# O exemplo3.py (Swing) e melhor executado localmente (veja README.md).
 CMD ["/app/run.sh"]
