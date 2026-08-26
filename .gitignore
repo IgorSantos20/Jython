@@ -1,0 +1,4 @@
+saida/*.txt
+*.class
+__pycache__/
+*.pyc
