@@ -197,15 +197,6 @@ container e imprime a saída no terminal.
 
 ## 8. Vídeo de apresentação
 
-O vídeo explicando o projeto e demonstrando a integração Python + Java
-(máx. 5 minutos, rosto visível) está disponível em:
-
 > _(cole aqui o link do Loom ou anexe o vídeo neste repositório)_
 
 ---
-
-## 9. Autor
-
-Atividade desenvolvida como exercício prático sobre interoperabilidade
-entre linguagens em uma mesma plataforma de execução (JVM), utilizando o
-Jython como ponte entre Python e Java.
