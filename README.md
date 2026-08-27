@@ -198,6 +198,6 @@ container e imprime a saída no terminal.
 
 ## 8. Vídeo de apresentação
 
-> _(cole aqui o link do Loom ou anexe o vídeo neste repositório)_
+> https://youtu.be/-G3obPmHDgw
 
 ---
