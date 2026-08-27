@@ -88,11 +88,7 @@ programas Java. Como consequência prática:
    manipulados com sintaxe Python normal (`File("saida")`,
    `lista.add("Maria")`, `writer.close()`), mas por baixo são instâncias
    Java de verdade, com todos os seus métodos originais disponíveis.
-3. **Implementação de interfaces Java em Python**: no `exemplo3.py`, a
-   classe Python `AcaoBotao` estende `ActionListener` (uma interface
-   Java) e implementa o método `actionPerformed`, que é chamado
-   automaticamente pela JVM quando o botão Swing é clicado.
-4. **Recursos "pythonicos" sobre objetos Java**: estruturas Java que
+3. **Recursos "pythonicos" sobre objetos Java**: estruturas Java que
    implementam `Iterable` (como `ArrayList`) podem ser percorridas com o
    `for x in y:` do Python, e `Collections` (uma classe utilitária Java)
    é chamada como se fosse uma função de biblioteca padrão.
