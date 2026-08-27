@@ -112,6 +112,7 @@ atividade-jython/
 ├── Dockerfile
 ├── exemplo1.py      # java.io + java.util.Date + java.text
 ├── exemplo2.py      # java.util (ArrayList, HashMap, TreeMap, Collections)
+├── run.sh           # script para que o docker executa para rodar os exemplos
 └── saida/           # pasta onde exemplo1.py grava o arquivo de log
 ```
 
